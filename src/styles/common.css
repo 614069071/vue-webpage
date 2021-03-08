@@ -1,0 +1,91 @@
+@import "//at.alicdn.com/t/font_2324743_73eyusc47yp.css";
+
+:root {
+  --default-color: #4084fb;
+  --hover-color: #669dfc;
+  --check-color: #3a8ee6;
+  --de-btn-color: #dcdfe6;
+  --table-color: #606266;
+  --holder-color: #c0c9cf;
+}
+
+body,
+html {
+  font-size: 14px;
+  width: 100%;
+  height: 100%;
+  min-width: 1420px;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+input,
+button {
+  padding: 0;
+  margin: 0;
+  border: none;
+  outline: none;
+}
+
+[class$="btn"] {
+  cursor: pointer;
+}
+
+label,
+input[type="radio"],
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+ul,
+ol,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 22px 0;
+  padding: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+tr,
+td,
+th {
+  margin: 0;
+  padding: 0;
+}
+
+i {
+  font-style: normal;
+}
+
+.wrapper {
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+}
+
+.el-button {
+  min-width: 96px;
+}
+
+.model-title {
+  height: 65px;
+  line-height: 65px;
+  padding-left: 24px;
+  background-color: #f5f7fa;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
