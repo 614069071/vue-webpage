@@ -55,7 +55,7 @@ export default {
 	components: { MenuTree, Login, Home, Wan, Lan, Modify, Upgrade, About },
 	data() {
 		return {
-			isLogin: false,
+			isLogin: true,
 			currentView: 'home',
 		};
 	},

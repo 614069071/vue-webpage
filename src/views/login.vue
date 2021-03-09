@@ -131,6 +131,10 @@ export default {
 	margin-bottom: 30px;
 }
 
+.input-item .el-input {
+	width: 100%;
+}
+
 .submit-item {
 	margin-bottom: 14px;
 }
