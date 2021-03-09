@@ -60,7 +60,7 @@ export default {
 		loginSubmit() {
 			this.$refs.loginForm.validate((valid) => {
 				if (valid) {
-					console.log('111');
+					this.$bus.$emit('login');
 				}
 			});
 		},

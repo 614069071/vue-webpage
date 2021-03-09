@@ -1,5 +1,5 @@
 <template>
-	<div id="app">
+	<div id="app" v-cloak>
 		<!-- 登录模块 -->
 		<login v-if="isLogin"></login>
 
@@ -26,7 +26,7 @@
 							<!-- 重置 恢复出厂设置-->
 							<span title="重置" id="reset_btn"><i class="iconfont icon-sync"></i></span>
 							<!-- 退出 -->
-							<span title="退出" id="exit_btn"><i class="iconfont icon-logout"></i></span>
+							<span title="退出" @click="logoutHandle"><i class="iconfont icon-logout"></i></span>
 						</div>
 					</header>
 					<!-- Main -->
@@ -55,12 +55,14 @@ export default {
 	components: { MenuTree, Login, Home, Wan, Lan, Modify, Upgrade, About },
 	data() {
 		return {
-			isLogin: true,
+			isLogin: 1,
 			currentView: 'home',
 		};
 	},
 	created() {
 		const route = utils._storages.get('CacheRoute');
+		const isLogin = utils._storages.get('CacheLogin') || 0;
+		this.isLogin = parseInt(isLogin);
 		this.currentView = route;
 	},
 	mounted() {
@@ -68,6 +70,17 @@ export default {
 			this.currentView = data;
 			utils._storages.set('CacheRoute', data);
 		});
+
+		this.$bus.$on('login', () => {
+			this.isLogin = 0;
+			utils._storages.set('CacheLogin', 0);
+		});
+	},
+	methods: {
+		logoutHandle() {
+			utils._storages.set('CacheLogin', 1);
+			this.isLogin = 1;
+		},
 	},
 };
 </script>
