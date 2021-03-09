@@ -38,8 +38,8 @@ export default {
 	height: 48px;
 	line-height: 48px;
 }
-.el-menu-item > .menu-icon {
-	margin-right: 12px;
+.el-menu-item .menu-icon {
+	margin-right: 8px;
 	display: inline-block;
 	width: 24px;
 	text-align: center;

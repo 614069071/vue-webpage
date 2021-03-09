@@ -61,7 +61,7 @@ export default {
 		};
 	},
 	created() {
-		const route = utils._storages.get('CacheRoute');
+		const route = utils._storages.get('CacheRoute') || 'home';
 		const isLogin = utils._storages.get('CacheLogin') || 0;
 		this.isLogin = parseInt(isLogin);
 		this.currentView = route;
