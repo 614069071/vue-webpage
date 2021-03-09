@@ -40,6 +40,9 @@ export default {
 }
 .el-menu-item > .menu-icon {
 	margin-right: 12px;
+	display: inline-block;
+	width: 24px;
+	text-align: center;
 }
 .el-menu-item.is-active {
 	background-color: var(--default-color) !important;
