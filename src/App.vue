@@ -14,7 +14,7 @@
 						</div>
 					</div>
 
-					<menu-tree :onRoute="currentView"></menu-tree>
+					<menu-tree :collapse="collapse" :onRoute="currentView"></menu-tree>
 				</nav>
 				<!-- 主体 -->
 				<div class="content-main-wrapper">
@@ -57,6 +57,7 @@ export default {
 		return {
 			isLogin: 1,
 			currentView: 'home',
+			collapse: false,
 		};
 	},
 	created() {
@@ -106,7 +107,6 @@ export default {
 }
 
 .nav-menu-wrapper {
-	width: 160px;
 	overflow-x: hidden;
 	overflow-y: auto;
 	background-color: #001529;
