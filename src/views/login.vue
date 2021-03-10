@@ -62,16 +62,18 @@ export default {
 			this.$refs.loginForm.validate((valid) => {
 				const passwrod = this.loginFormData.password;
 				if (valid) {
-					this.$request
-						.login(passwrod)
-						.then((res) => {
-							console.log(res);
-							this.$bus.$emit('login');
-						})
-						.catch((err) => {
-							console.log(err);
-							this.errorMessage = '请输入正确的密码';
-						});
+					this.$bus.$emit('login');
+
+					// this.$request
+					// 	.login(passwrod)
+					// 	.then((res) => {
+					// 		console.log(res);
+					// 		this.$bus.$emit('login');
+					// 	})
+					// 	.catch((err) => {
+					// 		console.log(err);
+					// 		this.errorMessage = '请输入正确的密码';
+					// 	});
 				}
 			});
 		},

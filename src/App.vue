@@ -101,12 +101,11 @@ export default {
 /* 主体内容 */
 .content-wrapper {
 	height: 100%;
-	width: 100%;
 	display: flex;
-	overflow: hidden;
 }
 
 .nav-menu-wrapper {
+	min-width: 0;
 	overflow-x: hidden;
 	overflow-y: auto;
 	background-color: #001529;
@@ -132,11 +131,9 @@ export default {
 
 .content-main-wrapper {
 	flex: 1;
-}
-
-.content-main-wrapper {
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
 }
 
 .main-header-wrapper {

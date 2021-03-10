@@ -100,37 +100,51 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .sidebar {
 	overflow-x: hidden;
 	overflow-y: scroll;
-}
-.sidebar::-webkit-scrollbar {
-	width: 0;
+
+	&::-webkit-scrollbar {
+		width: 0;
+	}
+
+	.sidebar-el-menu:not(.el-menu--collapse) {
+		width: 160px;
+		// min-width: 210px; //该写法，内容会自动撑开，但收起动画会不流畅
+	}
+
+	.el-menu {
+		border-right: 0;
+	}
+
+	ul {
+		height: 100%;
+	}
+
+	.el-menu--collapse > .middle-menu > .el-submenu > .el-submenu__title {
+		span {
+			height: 0;
+			width: 0;
+			overflow: hidden;
+			visibility: hidden;
+			display: inline-block;
+		}
+		.el-submenu__icon-arrow {
+			display: none;
+		}
+	}
 }
 
-.sidebar-el-menu:not(.el-menu--collapse) {
-	width: 160px;
-	/* // min-width: 210px; //该写法，内容会自动撑开，但收起动画会不流畅 */
-}
-
-.el-menu {
-	border-right: 0;
-}
-
-ul {
-	height: 100%;
-}
-
-.el-menu--collapse > .middle-menu > .el-submenu > .el-submenu__title span {
-	height: 0;
-	width: 0;
-	overflow: hidden;
-	visibility: hidden;
+.el-menu-item .menu-icon {
+	margin-right: 12px;
 	display: inline-block;
+	width: 24px;
+	text-align: center;
 }
-.el-submenu__icon-arrow {
-	display: none;
+
+.el-menu-item.is-active {
+	background-color: var(--default-color) !important;
 }
 </style>
 
