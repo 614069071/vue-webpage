@@ -7,7 +7,7 @@
 
 			<div class="login-main">
 				<el-form ref="loginForm" :model="loginFormData" :rules="rules">
-					<el-form-item class="input-item" prop="password">
+					<el-form-item class="input-item" prop="password" :error="errorMessage">
 						<el-input type="password" maxlength="15" autocomplete="off" placeholder="请输入密码" v-model.trim="loginFormData.password"></el-input>
 					</el-form-item>
 
@@ -39,6 +39,7 @@ export default {
 	data() {
 		return {
 			loginFormData: {},
+			errorMessage: '',
 			rules: {
 				password: [
 					{
@@ -69,6 +70,7 @@ export default {
 						})
 						.catch((err) => {
 							console.log(err);
+							this.errorMessage = '请输入正确的密码';
 						});
 				}
 			});
