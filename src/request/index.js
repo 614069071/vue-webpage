@@ -2,7 +2,7 @@ import md5 from 'js-md5';
 import _request from './request';
 
 // 登录(校验密码)
-export function _login(password) {
+export function login(password) {
   var str_md5 = md5('root' + password);
   var parmas = { operation: 'login', function: 'set', usrid: str_md5 };
 
@@ -10,61 +10,61 @@ export function _login(password) {
 }
 
 // 修改管理密码
-export function _setAccount(password) {
+export function setAccount(password) {
   var modfiy_parmas = { operation: 'login_modfiy', user: 'admin', password: password };
 
   return _request(modfiy_parmas)
 }
 
 // 重启路由器
-export function _restartRoute() {
+export function restartRoute() {
   var params = { operation: 'device_opt', action: 'reboot' };
 
   return _request(params);
 }
 
 // 恢复出厂设置(重置)
-export function _restoreRoute() {
+export function restoreRoute() {
   var params = { operation: 'device_opt', action: 'default' };
 
   return _request(params);
 }
 
 // 首页获取路由信息
-export function _getRouterInfo() {
+export function getRouterInfo() {
   var parmas = { operation: 'route_info', function: 'get' };
 
   return _request(parmas);
 }
 
 // 获取设备状态信息（）
-export function _getDeviceInfo() {
+export function getDeviceInfo() {
   var parmas = { operation: 'dev_info', function: 'get' };
 
   return _request(parmas);
 }
 
 // lan口设置 获取DHCP信息
-export function _getLanInfo() {
+export function getLanInfo() {
   var parmas = { operation: 'dhcpd', function: 'get' };
 
   return _request(parmas);
 }
 
 //  lan口设置 => 设置lan口信息
-export function _setLanInfo(parmas) {
+export function setLanInfo(parmas) {
   return _request(parmas);
 }
 
 // lan口设置 => 获取dhcp设备列表
-export function _getOlineList() {
+export function getOlineList() {
   var parmas = { operation: 'get_host', function: 'get' };
 
   return _request(parmas);
 }
 
 // wan口设置 设置dhcp
-export function _setConnectDhcp() {
+export function setConnectDhcp() {
   var parmas = {
     operation: 'wan_setup',
     function: 'set',
@@ -75,7 +75,7 @@ export function _setConnectDhcp() {
 }
 
 // wan口设置 宽带拨号
-export function _setConnectPPPoE(account, password) {
+export function setConnectPPPoE(account, password) {
   var params = {
     operation: "wan_setup",
     function: "set",
@@ -94,12 +94,12 @@ export function _setConnectPPPoE(account, password) {
 }
 
 // 设置静态IP
-export function _setConnectStatic(parmas) {
+export function setConnectStatic(parmas) {
   return _request(parmas);
 }
 
 // 软件升级 => 上传文件
-export function _uploadFile(file) {
+export function uploadFile(file) {
   const parmas = { type: 'upload', function: 'upgrade' };
   const formData = new FormData();
   formData.append('file', file);
@@ -130,14 +130,14 @@ export function _uploadFile(file) {
 }
 
 //  软件升级 => 升级
-export function _upgradeStart() {
+export function upgradeStart() {
   const parmas = { type: 'mtd_write', function: 'upgrade' }
 
   return _request({}, parmas);
 }
 
 // 检测版本（测试接口，无效）
-export function _detectionVersion() {
+export function detectionVersion() {
   const parmas = {};
 
   return _request(parmas);

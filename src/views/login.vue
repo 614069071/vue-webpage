@@ -8,7 +8,7 @@
 			<div class="login-main">
 				<el-form ref="loginForm" :model="loginFormData" :rules="rules">
 					<el-form-item class="input-item" prop="password">
-						<el-input type="password" maxlength="15" autocomplete="off" v-model.trim="loginFormData.password"></el-input>
+						<el-input type="password" maxlength="15" autocomplete="off" placeholder="请输入密码" v-model.trim="loginFormData.password"></el-input>
 					</el-form-item>
 
 					<el-form-item class="submit-item">
@@ -42,7 +42,7 @@ export default {
 			rules: {
 				password: [
 					{
-						validator(rule, value, callback) {
+						validator: (rule, value, callback) => {
 							if (!value) {
 								callback(new Error('请输入密码'));
 							} else if (!utils._validePassword(value)) {
@@ -59,8 +59,17 @@ export default {
 	methods: {
 		loginSubmit() {
 			this.$refs.loginForm.validate((valid) => {
+				const passwrod = this.loginFormData.password;
 				if (valid) {
-					this.$bus.$emit('login');
+					this.$request
+						.login(passwrod)
+						.then((res) => {
+							console.log(res);
+							this.$bus.$emit('login');
+						})
+						.catch((err) => {
+							console.log(err);
+						});
 				}
 			});
 		},
