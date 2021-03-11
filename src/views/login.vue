@@ -6,9 +6,9 @@
 			</div>
 
 			<div class="login-main">
-				<el-form ref="loginForm" :model="loginFormData" :rules="rules">
+				<el-form ref="loginForm" :model="loginFormData" :rules="rules" @submit.native.prevent>
 					<el-form-item class="input-item" prop="password" :error="errorMessage">
-						<el-input type="password" maxlength="15" autocomplete="off" placeholder="请输入密码" v-model.trim="loginFormData.password"></el-input>
+						<el-input type="password" maxlength="15" autocomplete="off" placeholder="请输入密码" v-model.trim="loginFormData.password" @keyup.enter="loginSubmit"></el-input>
 					</el-form-item>
 
 					<el-form-item class="submit-item">
