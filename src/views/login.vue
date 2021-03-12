@@ -60,7 +60,7 @@ export default {
 	methods: {
 		loginSubmit() {
 			this.$refs.loginForm.validate((valid) => {
-				const passwrod = this.loginFormData.password;
+				// const passwrod = this.loginFormData.password;
 				if (valid) {
 					this.$bus.$emit('login');
 
